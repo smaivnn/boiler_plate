@@ -19,7 +19,7 @@ const verifyJWT = (req, res, next) => {
         message: `Access Token Expired`,
       });
 
-    return res.status(403).json({
+    return res.status(401).json({
       success: false,
       message: `Access Invalid Token`,
     });

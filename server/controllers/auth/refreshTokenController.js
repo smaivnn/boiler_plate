@@ -11,12 +11,13 @@ const handleRefreshToken = async (req, res) => {
 
   try {
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
-
+    const roles = Object.values(foundUser.roles);
     const accessToken = jwt.sign(
       {
         userInfo: {
           userId: foundUser.userId,
           name: foundUser.name,
+          roles,
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
