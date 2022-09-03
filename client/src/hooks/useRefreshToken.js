@@ -12,7 +12,8 @@ const useRefreshToken = () => {
       dispatch(setAccessToken({ accessToken }));
       return accessToken;
     } catch (error) {
-      if (error?.response?.status === 401) {
+      if (error?.response?.status === 401 || error?.response?.status === 419) {
+        console.log("실행", error.response.status);
         await persistor.purge();
       }
     }

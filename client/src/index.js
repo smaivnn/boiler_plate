@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
   disableReactDevTools();
 }
 
+// persist store for redux persist
 export let persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
