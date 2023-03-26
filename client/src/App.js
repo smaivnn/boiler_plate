@@ -23,6 +23,7 @@ function App() {
   const refresh = useRefreshToken();
 
   // when page refresh, save new accessToken and UserInfo to the Redux store.
+  /*
   useEffect(() => {
     async function getToken() {
       try {
@@ -34,7 +35,7 @@ function App() {
     getToken();
     return () => {};
   }, []);
-
+*/
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -50,14 +51,14 @@ function App() {
         <Route path="allowed" index element={<AllowedPage />} />
 
         {/* not allowed page, need login and ROLES */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-          <Route path="chat" index element={<ChatPage />} />
-        </Route>
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}> */}
+        <Route path="chat" index element={<ChatPage />} />
+        {/* </Route> */}
 
         {/* admin Page, need admin role */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="admin" index element={<AdminPage />} />
-        </Route>
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
+        <Route path="admin" index element={<AdminPage />} />
+        {/* </Route> */}
 
         {/* show unathorize */}
         <Route path="unauthorized" index element={<Unauthorized />} />
